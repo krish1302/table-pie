@@ -1,0 +1,24 @@
+<table class="table  table-bordered border-secondary">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Total Worked Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of empData | groupBy: 'EmployeeName'; index as i">
+            <td [ngClass]="gethour(emp.value) > 100 ? '': 'red'">{{i + 1}}</td>
+            <td [ngClass]="gethour(emp.value) > 100 ? '': 'red'">{{emp.key}}</td>
+            <td [ngClass]="gethour(emp.value) > 100 ? '': 'red'">{{gethour(emp.value)}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<b>Note: Colored Row indicates the Employee worked less than 100 hours</b>
+
+<div>
+    <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>    
+</div>                        
+
+
